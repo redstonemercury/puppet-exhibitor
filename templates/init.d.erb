@@ -5,12 +5,7 @@ PID_FILE=/var/run/$NAME.pid
 
 [ -r /etc/default/exhibitor ] && . /etc/default/exhibitor
 
-if [ -f "/usr/bin/ec2metadata" ] ; then
-  OS_HOSTNAME=$(ec2metadata --public-hostname)
-else
-  OS_HOSTNAME=$(hostname -f)
-fi
-HOSTNAME=${EXHIBITOR_HOSTNAME:-$OS_HOSTNAME}
+HOSTNAME=$(hostname -f)
 
 DAEMON="java -jar ${EXHIBITOR_HOME}/exhibitor-<%= @version %>-jar-with-dependencies.jar"
 DAEMON_OPTS="--hostname ${HOSTNAME} ${EXHIBITOR_OPTS}"
