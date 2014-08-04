@@ -18,8 +18,15 @@ DAEMON_OPTS="--hostname ${HOSTNAME} ${EXHIBITOR_OPTS}"
 start() {
   if [ -f $PID_FILE ]
     then
-        echo "\n$PID_FILE exists, process is already running or crashed"
+      PID=`cat $PID_FILE`
+      if [ -z "`ps -ef | awk '{print $2}' | grep "^$PID$"`" ]; then
+        echo "\n$PID_FILE exists, process is already running"
         exit 0
+      else
+        echo "\n$PID_FILE exists but the process is not running. Deleting $PID_FILE and re-trying"
+        rm -f $PID_FILE
+        start
+      fi
     else
         exec $DAEMON $DAEMON_OPTS >> /var/log/exhibitor.log 2>&1 &
         echo $! > $PID_FILE;
