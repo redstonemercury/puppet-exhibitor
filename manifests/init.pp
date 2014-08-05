@@ -6,7 +6,7 @@ class exhibitor(
   $opts = $exhibitor::params::opts,
   $properties = $exhibitor::params::properties,
   $zk_data_dir = $exhibitor::params::zk_data_dir,
-  $zk_quorum = $exhibitor::params::zk_quorum
+  $zk_quorum = ''
 ) inherits exhibitor::params {
 
   class { 'exhibitor::install': } ->

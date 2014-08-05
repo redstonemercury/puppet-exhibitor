@@ -6,14 +6,14 @@ class exhibitor::params {
 
   $conf_dir = '/etc/exhibitor'
   
-  $zk_quorum = ['']
-  
   $opts = {
     'port'        => '9090',
     'configtype'  => 'file',
     'fsconfigdir' => $install_dir,
     'hostname'    => $::hostname
   }
+  
+  $zk_quorum = ['']
   
   $properties = {
     'com.netflix.exhibitor-rolling-hostnames'                                 => '',
