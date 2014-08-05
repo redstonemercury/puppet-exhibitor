@@ -11,5 +11,5 @@ end -%>"
 
 EXHIBITOR_QUORUM="<%- @zk_quorum.each_with_index do |server, index| -%>
 S:<%= index+1 %>:<%= server -%>
-<%- if index < (@zk_quorum.length - 1) -%>,<%- end -%>">
-<%- end -%>
+<%- if index < (@zk_quorum.length - 1) -%>,<%- end -%>
+<%- end -%>"
