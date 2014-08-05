@@ -23,7 +23,7 @@ S:<%= index+1 %>:<%= server -%>
     content => template('exhibitor/default.erb')
   }
   
-  file { "${install_dir}/exhibitor.properies":
+  file { "${install_dir}/exhibitor.properties":
     ensure  => present,
     content => template('exhibitor/exhibitor.properties.erb') 
   }
