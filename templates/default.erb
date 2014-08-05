@@ -2,9 +2,13 @@
 
 EXHIBITOR_HOME="<%= @install_dir %>"
 
-EXHIBITOR_OPTS="<%- @config.each do |k,v|
+EXHIBITOR_OPTS="<%- @opts.each do |k,v|
   if v.length != 0 -%>
  --<%= k %> <%= "\\\"#{v}\\\"" -%>
 <%-
   end
+end -%>"
+
+EXHIBITOR_QUORUM="<%- @zk_quorum.each_with_index do |server, index|
+ S:<%= index+1 %>:<%= server %>, 
 end -%>"
