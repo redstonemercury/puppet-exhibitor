@@ -10,5 +10,5 @@ EXHIBITOR_OPTS="<%- @opts.each do |k,v|
 end -%>"
 
 EXHIBITOR_QUORUM="<%- @zk_quorum.each_with_index do |server, index| -%>
-S:<%= index+1 %>:<%= server %>, 
+S:<%= index+1 %>:<%= server -%>, 
 <%- end -%>"
