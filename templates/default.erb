@@ -2,7 +2,7 @@
 
 EXHIBITOR_HOME="<%= @install_dir %>"
 
-EXHIBITOR_OPTS="<%- @opts.each do |k,v|
+EXHIBITOR_OPTS="<%- @opts.sort.each do |k,v|
   if v.length != 0 -%>
  --<%= k %> <%= "\\\"#{v}\\\"" -%>
 <%-
