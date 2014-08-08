@@ -1,22 +1,10 @@
 class exhibitor::config(
   $opts = $exhibitor::opts,
   $properties = $exhibitor::properties,
-  $zk_data_dir = $exhibitor::zk_data_dir,
-  $zk_quorum = $exhibitor::zk_quorum,
   $install_dir = $exhibitor::install_dir
-) {
-
-  $exhibitor_quorum = inline_template("<%- @zk_quorum.each_with_index do |server, index| -%>
-S:<%= index+1 %>:<%= server -%>
-  <%- if index < (@zk_quorum.length - 1) -%>,<%- end -%>
-  <%- end -%>")
+) inherits exhibitor::params {
   
-  $quorum_hash = {
-    'com.netflix.exhibitor-rolling.servers-spec' => $exhibitor_quorum,
-    'com.netflix.exhibitor.servers-spec'         => $exhibitor_quorum
-  }
-  
-  $merged_properties = merge($properties, $quorum_hash)
+  $merged_properties = merge($exhibitor::params::properties, $properties)
     
   file { '/etc/default/exhibitor':
     ensure  => present,

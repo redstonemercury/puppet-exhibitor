@@ -17,7 +17,7 @@ class exhibitor::params {
   
   $properties = {
     'com.netflix.exhibitor-rolling-hostnames'                                 => '',
-    'com.netflix.exhibitor-rolling.zookeeper-data-directory'                  => $zk_data_dir,
+    'com.netflix.exhibitor-rolling.zookeeper-data-directory'                  => '/opt/zookeeper-data',
     'com.netflix.exhibitor-rolling.servers-spec'                              => '$EXHIBITOR_QUORUM',
     'com.netflix.exhibitor.java-environment'                                  => '',
     'com.netflix.exhibitor.zookeeper-data-directory'                          => '/opt/zookeeper-data',
@@ -29,7 +29,7 @@ class exhibitor::params {
     'com.netflix.exhibitor.auto-manage-instances-fixed-ensemble-size'         => '0',
     'com.netflix.exhibitor.zookeeper-install-directory'                       => '/opt/zookeeper',
     'com.netflix.exhibitor.check-ms'                                          => '30000',
-    'com.netflix.exhibitor.zookeeper-log-directory'                           => $zk_data_dir,
+    'com.netflix.exhibitor.zookeeper-log-directory'                           => '',
     'com.netflix.exhibitor-rolling.auto-manage-instances'                     => '0',
     'com.netflix.exhibitor-rolling.cleanup-period-ms'                         => '43200000',
     'com.netflix.exhibitor-rolling.auto-manage-instances-settling-period-ms'  => '180000',
@@ -58,7 +58,7 @@ class exhibitor::params {
     'com.netflix.exhibitor.election-port'                                     => '3888',
     'com.netflix.exhibitor-rolling.auto-manage-instances-apply-all-at-once'   => '1',
     'com.netflix.exhibitor.zoo-cfg-extra'                                     => 'syncLimit\=5&tickTime\=2000&initLimit\=10&quorumListenOnAllIPs\=true',
-    'com.netflix.exhibitor-rolling.zookeeper-log-directory'                   => $zk_data_dir,
+    'com.netflix.exhibitor-rolling.zookeeper-log-directory'                   => '',
     'com.netflix.exhibitor.auto-manage-instances-settling-period-ms'          => '180000',
     'com.netflix.exhibitor-rolling.log4j-properties'                          => '',
     'com.netflix.exhibitor.auto-manage-instances'                             => ''
