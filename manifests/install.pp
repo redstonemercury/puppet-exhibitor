@@ -9,8 +9,8 @@ class exhibitor::install(
   }
 
   exec { 'download-exhibitor':
-    command => "/usr/bin/wget -O ${install_dir}/exhibitor-${version}-jar-with-dependencies.jar ${install_source}/exhibitor-${version}-jar-with-dependencies.jar",
-    creates => "${install_dir}/exhibitor-${version}-jar-with-dependencies.jar",
+    command => "/usr/bin/wget -O ${install_dir}/exhibitor-${version}.jar ${install_source}/exhibitor-${version}.jar",
+    creates => "${install_dir}/exhibitor-${version}.jar",
     require => File[$install_dir]
   }
 }
